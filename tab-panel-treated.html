@@ -1,7 +1,7 @@
 <html lang="en">
 
 <head>
-  <title>Sick Tab Panel Demo | Dr. A11y's Treatments</title>
+  <title>Treated Tab Panel Demo | Dr. A11y's Treatments</title>
 
   <style>
     /* Style the tab */
@@ -43,29 +43,29 @@
 </head>
 
 <body>
-  <h1>Sick Tab Panel Demo</h1>
+  <h1>Treated Tab Panel Demo</h1>
 
   <h2>Amazing Cities in the World</h2>
 
   <!-- Tab links -->
-  <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'London')">London</button>
-    <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  <div class="tab" role="tablist" aria-label="Cities">
+    <button role="tab" id="tab-1" aria-selected="true" class="tablinks active" onclick="openCity(event, 'London')">London</button>
+    <button role="tab" id="tab-2" aria-selected="false" class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+    <button role="tab" id="tab-3" aria-selected="false" class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
   </div>
 
   <!-- Tab content -->
-  <div id="London" style="display: block" class="tabcontent">
+  <div id="London" style="display: block" role="tabpanel" aria-labelledby="tab-1" tabindex="0" class="tabcontent">
     <h3>London</h3>
     <p>London is the capital city of England.</p>
   </div>
 
-  <div id="Paris" class="tabcontent">
+  <div id="Paris" role="tabpanel" aria-labelledby="tab-2" tabindex="0" class="tabcontent">
     <h3>Paris</h3>
     <p>Paris is the capital of France.</p>
   </div>
 
-  <div id="Tokyo" class="tabcontent">
+  <div id="Tokyo" role="tabpanel" aria-labelledby="tab-3" tabindex="0" class="tabcontent">
     <h3>Tokyo</h3>
     <p>Tokyo is the capital of Japan.</p>
   </div>
@@ -114,11 +114,14 @@
       tablinks = document.getElementsByClassName("tablinks");
       for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].setAttribute('aria-selected', false);
       }
 
       // Show the current tab, and add an "active" class to the button that opened the tab
       document.getElementById(cityName).style.display = "block";
       evt.currentTarget.className += " active";
+      evt.currentTarget.setAttribute('aria-selected', true);
+      setTimeout(function () { document.getElementById(cityName).focus() }, 0);
     }
   </script>
 </body>
