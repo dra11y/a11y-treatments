@@ -1,0 +1,126 @@
+<html lang="en">
+
+<head>
+  <title>Sick Tab Panel Demo | Dr. A11y's Treatments</title>
+
+  <style>
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Sick Tab Panel Demo</h1>
+
+  <h2>Amazing Cities in the World</h2>
+
+  <!-- Tab links -->
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+    <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  </div>
+
+  <!-- Tab content -->
+  <div id="London" style="display: block" class="tabcontent">
+    <h3>London</h3>
+    <p>London is the capital city of England.</p>
+  </div>
+
+  <div id="Paris" class="tabcontent">
+    <h3>Paris</h3>
+    <p>Paris is the capital of France.</p>
+  </div>
+
+  <div id="Tokyo" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+
+  <h2>Example Content</h2>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus elit ut ex ornare laoreet. Integer ultrices nunc at rutrum venenatis. Cras nec congue metus. Curabitur fermentum nisl a
+    turpis gravida efficitur. Aliquam facilisis nibh sit amet felis mattis, at scelerisque odio volutpat. Etiam augue lectus, condimentum a enim in, mattis ornare justo. Duis dignissim sodales
+    viverra. Ut ut odio sapien.</p>
+
+  <p>Curabitur egestas ornare mauris sit amet varius. Aenean id risus vitae magna ultrices molestie. Suspendisse malesuada dui quam, non auctor lorem fringilla sed. Aenean ullamcorper, nunc vel
+    maximus congue, turpis ex vulputate massa, non rhoncus nisl sem in nisi. Suspendisse varius facilisis eros, at malesuada leo elementum sed. Pellentesque hendrerit nisl at nisl venenatis ornare.
+    Praesent ut nisi laoreet, posuere quam varius, fermentum nibh. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean viverra neque arcu, sit amet
+    condimentum mauris lacinia id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc sollicitudin diam et nisl vehicula, eu malesuada odio fermentum.</p>
+
+  <h2>Another Illustrative Heading</h2>
+
+  <p>Nulla elementum tristique elit, eget pharetra sem euismod eget. Donec viverra arcu ac lorem viverra ultrices. Nam varius nibh sed tortor ultrices, eu vehicula ante porta. Nulla eleifend viverra
+    mollis. Nam eget aliquam orci, nec scelerisque turpis. Sed elementum turpis at justo rhoncus, ut auctor urna egestas. Sed faucibus efficitur magna sed efficitur. Mauris eu elementum est. Cras
+    ultricies nisi pulvinar, condimentum diam vitae, consectetur nunc. Praesent magna urna, placerat et scelerisque ac, tincidunt quis quam. Sed eget blandit ipsum. In vitae quam aliquet, convallis
+    dolor in, ullamcorper nisi.</p>
+
+  <p>Etiam maximus nec nunc et hendrerit. Phasellus imperdiet et dolor eu posuere. Praesent vulputate ipsum id urna porta, ut fringilla mauris iaculis. Cras ex metus, sodales eu laoreet pharetra,
+    hendrerit vitae metus. Sed a augue non ante vehicula blandit. Donec vel porttitor dolor, ac bibendum justo. Duis vel gravida quam. Aliquam faucibus sed ipsum sed dictum. Mauris ultrices viverra
+    magna nec ultrices. Donec ut pellentesque ante.</p>
+
+  <h2>Final Heading</h2>
+
+  <p>Cras convallis fermentum nisl, quis feugiat purus vehicula elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam eu commodo sapien. In
+    quis arcu laoreet, aliquet lectus ut, porta ipsum. Praesent a tincidunt quam. Etiam ut neque sem. In rutrum malesuada eros a molestie. Quisque eget risus nec libero commodo laoreet. In tortor
+    arcu, iaculis sed ullamcorper quis, imperdiet vel neque. Donec libero justo, sodales ac tempor id, convallis sit amet magna. In vestibulum mi eget posuere dapibus. Morbi finibus vitae quam
+    vestibulum scelerisque. Integer ultrices at erat vitae finibus. Donec at lacus sit amet lorem tincidunt suscipit at at ante. Integer vitae erat et nisl imperdiet auctor eget eu augue.</p>
+
+  <script>
+    function openCity(evt, cityName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+</body>
+
+</html>
